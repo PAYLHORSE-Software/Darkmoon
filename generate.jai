@@ -1,10 +1,5 @@
-// WARNING: don't run this unless you want to configure your own bindings from scratch!
-
-#import "Basic";
-#import "Bindings_Generator";
-#import "File";
-#import "Hash_Table";
-#import "Jaison";
+// This script generates a windows.jai into the 'gen' directory, and requires the luajit source files!
+// The windows.jai in the root directory has been hand-edited.
 
 AT_COMPILE_TIME :: true;
 
@@ -15,6 +10,7 @@ LUAJIT_PATH :: "luajit";
 
 #if AT_COMPILE_TIME {
     #run,stallable {
+        make_directory_if_it_does_not_exist("gen");
         set_build_options_dc(.{do_output=false});
         root_options := get_build_options();
         args := root_options.compile_time_command_line;
@@ -43,7 +39,7 @@ generate_bindings :: (args: [] string) -> bool {
         // TODO: platform support!
         #if OS == .WINDOWS {
             // array_add(*libpaths, tprint("%/bin/windows", LUAJIT_PATH));
-            output_filename = "windows.jai";
+            output_filename = "gen/windows.jai";
         } else {
             #if OS == .LINUX {
                 // array_add(*libpaths, tprint("%/bin/linux", LUAJIT_PATH));
@@ -52,7 +48,7 @@ generate_bindings :: (args: [] string) -> bool {
             } else {
                 assert(false);
             }
-            output_filename = "unix.jai";
+            output_filename = "gen/unix.jai";
             generate_library_declarations = false;
             footer = FOOTER_UNIX;
         }
@@ -75,13 +71,10 @@ generate_bindings :: (args: [] string) -> bool {
 }
 
 #import "Basic";
-#import "Bindings_Generator";
-#import "BuildCpp";
 #import "Compiler";
+#import "Bindings_Generator";
 #import "File";
-#import "Hash_Table";
-#import "String";
 
-FOOTER_UNIX :: #string END
+// FOOTER_UNIX :: #string END
 
-END
+// END

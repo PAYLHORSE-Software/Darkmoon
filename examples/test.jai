@@ -1,6 +1,3 @@
-#import "Basic";
-#import "Darkmoon";
-
 print_luajit_version :: () {
 
     // (1) Initialize the Lua state
@@ -32,3 +29,6 @@ print_luajit_version :: () {
 main :: () {
     print_luajit_version();
 }
+
+#import "Basic";
+#import "Darkmoon";
