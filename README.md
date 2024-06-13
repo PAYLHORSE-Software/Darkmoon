@@ -5,9 +5,11 @@
 ## ABOUT
 **LuaJIT bindings for a secret language.**
 
-Plug-and-play! Bindings pre-generated and static libraries included. 
-
 **(LuaJIT 2.1.1713773202 - Windows x64)**
+
+Plug-and-play! Bindings pre-generated and static libraries included.
+
+Credit to [@vulcan-dev](https://github.com/vulcan-dev/jai-luajit) for hand-copied additional bindings.
 
 ## USAGE
 ```jai
