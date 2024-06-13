@@ -370,7 +370,7 @@ luaL_pushmodule :: (L: *lua_State, modname: *u8, sizehint: s32) -> void #foreign
 luaL_testudata :: (L: *lua_State, ud: s32, tname: *u8) -> *void #foreign lua51;
 luaL_setmetatable :: (L: *lua_State, tname: *u8) -> void #foreign lua51;
 
-// {======================================================
+// =======================================================
 // Generic Buffer manipulation
 // =======================================================
 
