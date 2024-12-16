@@ -300,6 +300,20 @@ lua_copy :: (L: *lua_State, fromidx: s32, toidx: s32) -> void #foreign lua51;
 lua_tonumberx :: (L: *lua_State, idx: s32, isnum: *s32) -> lua_Number #foreign lua51;
 lua_tointegerx :: (L: *lua_State, idx: s32, isnum: *s32) -> lua_Integer #foreign lua51;
 
+luaL_fileresult :: (L: *lua_State, stat: s32, fname: *u8) -> s32 #foreign lua51;
+luaL_execresult :: (L: *lua_State, stat: s32) -> s32 #foreign lua51;
+luaL_loadfilex :: (L: *lua_State, filename: *u8, mode: *u8) -> s32 #foreign lua51;
+
+luaL_loadbufferx :: (L: *lua_State, buff: *u8, sz: u64, name: *u8, mode: *u8) -> s32 #foreign lua51;
+
+luaL_traceback :: (L: *lua_State, L1: *lua_State, msg: *u8, level: s32) -> void #foreign lua51;
+
+luaL_setfuncs :: (L: *lua_State, l: *luaL_Reg, nup: s32) -> void #foreign lua51;
+luaL_pushmodule :: (L: *lua_State, modname: *u8, sizehint: s32) -> void #foreign lua51;
+
+luaL_testudata :: (L: *lua_State, ud: s32, tname: *u8) -> *void #foreign lua51;
+luaL_setmetatable :: (L: *lua_State, tname: *u8) -> void #foreign lua51;
+
 /* From Lua 5.3. */
 lua_isyieldable :: (L: *lua_State) -> s32 #foreign lua51;
 
@@ -354,21 +368,6 @@ luaL_newstate :: () -> *lua_State #foreign lua51;
 luaL_gsub :: (L: *lua_State, s: *u8, p: *u8, r: *u8) -> *u8 #foreign lua51;
 
 luaL_findtable :: (L: *lua_State, idx: s32, fname: *u8, szhint: s32) -> *u8 #foreign lua51;
-
-/* From Lua 5.2. */
-luaL_fileresult :: (L: *lua_State, stat: s32, fname: *u8) -> s32 #foreign lua51;
-luaL_execresult :: (L: *lua_State, stat: s32) -> s32 #foreign lua51;
-luaL_loadfilex :: (L: *lua_State, filename: *u8, mode: *u8) -> s32 #foreign lua51;
-
-luaL_loadbufferx :: (L: *lua_State, buff: *u8, sz: u64, name: *u8, mode: *u8) -> s32 #foreign lua51;
-
-luaL_traceback :: (L: *lua_State, L1: *lua_State, msg: *u8, level: s32) -> void #foreign lua51;
-
-luaL_setfuncs :: (L: *lua_State, l: *luaL_Reg, nup: s32) -> void #foreign lua51;
-luaL_pushmodule :: (L: *lua_State, modname: *u8, sizehint: s32) -> void #foreign lua51;
-
-luaL_testudata :: (L: *lua_State, ud: s32, tname: *u8) -> *void #foreign lua51;
-luaL_setmetatable :: (L: *lua_State, tname: *u8) -> void #foreign lua51;
 
 // =======================================================
 // Generic Buffer manipulation
