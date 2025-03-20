@@ -31,4 +31,6 @@ main :: () {
 }
 
 #import "Basic";
-#import "Darkmoon";
+
+// #import "Darkmoon";
+#load "module.jai";

@@ -15,4 +15,4 @@ Credit to [@vulcan-dev](https://github.com/vulcan-dev/jai-luajit) for hand-copie
 ```jai
 #import "Darkmoon"
 ```
-See examples.
+See 'test.jai'.
